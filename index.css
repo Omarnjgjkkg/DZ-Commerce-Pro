@@ -1,0 +1,51 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-cairo: 'Cairo', sans-serif;
+  --color-primary-50: #f0f1f8;
+  --color-primary-100: #e0e3f0;
+  --color-primary-200: #c7ccde;
+  --color-primary-300: #a5b4fc;
+  --color-primary-400: #818cf8;
+  --color-primary-500: #6366f1;
+  --color-primary-600: #4f46e5;
+  --color-primary-700: #4338ca;
+  --color-primary-800: #3730a3;
+  --color-primary-900: #312e81;
+  --color-accent-400: #fbbf24;
+  --color-accent-500: #f59e0b;
+  --color-accent-600: #d97706;
+  --color-dark-bg: #0c0f1a;
+  --color-dark-card: #161b2e;
+  --color-dark-card2: #1e2642;
+  --color-dark-border: #252d45;
+  --color-dark-text: #e2e8f0;
+  --color-dark-text2: #8892b0;
+}
+
+* { font-family: 'Cairo', sans-serif; }
+html { scroll-behavior: smooth; }
+
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: #f1f5f9; }
+.dark ::-webkit-scrollbar-track { background: #161b2e; }
+::-webkit-scrollbar-thumb { background: #94a3b8; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #64748b; }
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes scaleIn { from { opacity: 0; transform: scale(0.92); } to { opacity: 1; transform: scale(1); } }
+@keyframes pulse-glow { 0%, 100% { box-shadow: 0 0 0 0 rgba(99,102,241,0.35); } 50% { box-shadow: 0 0 0 6px rgba(99,102,241,0); } }
+@keyframes shimmer { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
+@keyframes confetti { 0% { transform: translateY(0) rotate(0); opacity:1; } 100% { transform: translateY(-80px) rotate(360deg); opacity:0; } }
+
+.animate-fadeIn { animation: fadeIn .4s ease-out forwards; }
+.animate-slideUp { animation: slideUp .5s ease-out forwards; }
+.animate-scaleIn { animation: scaleIn .25s ease-out forwards; }
+.animate-pulse-glow { animation: pulse-glow 2.5s ease-in-out infinite; }
+.animate-shimmer { background: linear-gradient(90deg,#f0f0f0 25%,#e0e0e0 50%,#f0f0f0 75%); background-size: 200% 100%; animation: shimmer 1.5s infinite; }
+.dark .animate-shimmer { background: linear-gradient(90deg,#1e2642 25%,#252d45 50%,#1e2642 75%); background-size: 200% 100%; }
+
+html, body, * { transition: background-color .25s, color .25s, border-color .25s; }
